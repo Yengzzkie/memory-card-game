@@ -1,18 +1,51 @@
 const gridContainer = document.querySelector(".grid-container");
-let cards = [];
+let cards = [
+  {
+    image: "./assets/chili.png",
+    name: "chili",
+  },
+  {
+    image: "./assets/grapes.png",
+    name: "grapes",
+  },
+  {
+    image: "./assets/lemon.png",
+    name: "lemon",
+  },
+  {
+    image: "./assets/orange.png",
+    name: "orange",
+  },
+  {
+    image: "./assets/pineapple.png",
+    name: "pineapple",
+  },
+  {
+    image: "./assets/strawberry.png",
+    name: "strawberry",
+  },
+  {
+    image: "./assets/tomato.png",
+    name: "tomato",
+  },
+  {
+    image: "./assets/watermelon.png",
+    name: "watermelon",
+  },
+  {
+    image: "./assets/cherries.png",
+    name: "cherries",
+  },
+];
 let firstCard, secondCard;
 let lockBoard = false;
 let score = 0;
 
 document.querySelector(".score").textContent = score;
 
-fetch("./data/cards.json")
-  .then((res) => res.json())
-  .then((data) => {
-    cards = [...data, ...data];
-    shuffleCards();
-    generateCards();
-  });
+cards = [...cards, ...cards];
+shuffleCards();
+generateCards();
 
 function shuffleCards() {
   let currentIndex = cards.length,
@@ -34,7 +67,7 @@ function generateCards() {
     cardElement.setAttribute("data-name", card.name);
     cardElement.innerHTML = `
       <div class="front">
-        <img class="front-image" src=${card.image} />
+        <img class="front-image" src=${card.image}>
       </div>
       <div class="back"></div>
     `;
